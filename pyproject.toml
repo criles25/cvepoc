@@ -1,0 +1,32 @@
+[project]
+name = "cvepoc"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Charles Riley", email = "criley@xometry.com" }
+]
+dependencies = [
+    "flask>=3.0.3",
+]
+readme = "README.md"
+requires-python = ">= 3.11"
+
+[project.scripts]
+"cvepoc" = "cvepoc:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.rye.scripts]
+serve = "flask --app ./src/cvepoc/__main__ run"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cvepoc"]
